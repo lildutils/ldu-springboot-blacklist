@@ -36,7 +36,7 @@ public class LDuJpaBlacklistServiceImpl extends LDuBaseBlacklistItemServiceImpl 
 	public LDuBlacklistDTO getAll()
 	{
 		return new LDuBlacklistDTO(
-				repository.findAll().stream().map( super::convert ).collect( Collectors.toList() ) );
+				repository.findAll().stream().map( this::convert ).collect( Collectors.toList() ) );
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class LDuJpaBlacklistServiceImpl extends LDuBaseBlacklistItemServiceImpl 
 	{
 		validator.validate( dto, LDuBlacklistItemReadByTokenValidationGroup.class );
 
-		return new LDuBlacklistDTO( repository.findAllByToken( dto.getToken() ).stream().map( super::convert )
+		return new LDuBlacklistDTO( repository.findAllByToken( dto.getToken() ).stream().map( this::convert )
 				.collect( Collectors.toList() ) );
 	}
 

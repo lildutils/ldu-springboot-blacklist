@@ -22,20 +22,18 @@ import com.lildutils.springboot.blacklist.validation.validator.LDuBlacklistItemV
 
 @Service
 @Transactional(readOnly = true)
-public class LDuMongoBlacklistServiceImpl extends LDuBaseBlacklistItemServiceImpl
-		implements LDuMongoBlacklistService
+public class LDuMongoBlacklistServiceImpl extends LDuBaseBlacklistItemServiceImpl implements LDuMongoBlacklistService
 {
 	@Autowired
 	private LDuMongoBlacklistRepository	repository;
 
 	@Autowired
-	private LDuBlacklistItemValidtor		validator;
+	private LDuBlacklistItemValidtor	validator;
 
 	@Override
 	public LDuBlacklistDTO getAll()
 	{
-		return new LDuBlacklistDTO(
-				repository.findAll().stream().map( super::convert ).collect( Collectors.toList() ) );
+		return new LDuBlacklistDTO( repository.findAll().stream().map( this::convert ).collect( Collectors.toList() ) );
 	}
 
 	@Override
@@ -56,7 +54,7 @@ public class LDuMongoBlacklistServiceImpl extends LDuBaseBlacklistItemServiceImp
 	{
 		validator.validate( dto, LDuBlacklistItemReadByTokenValidationGroup.class );
 
-		return new LDuBlacklistDTO( repository.findAllByToken( dto.getToken() ).stream().map( super::convert )
+		return new LDuBlacklistDTO( repository.findAllByToken( dto.getToken() ).stream().map( this::convert )
 				.collect( Collectors.toList() ) );
 	}
 
