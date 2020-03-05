@@ -4,6 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+import com.lildutils.springboot.blacklist.controller.advice.LDuBlacklistControllerAdvice;
 import com.lildutils.springboot.blacklist.mongodb.repository.LDuMongoBlacklistRepository;
 import com.lildutils.springboot.blacklist.mongodb.service.LDuMongoBlacklistService;
 import com.lildutils.springboot.blacklist.validation.validator.LDuBlacklistItemValidtor;
@@ -15,7 +16,7 @@ import com.lildutils.springboot.blacklist.validation.validator.LDuBlacklistItemV
 @Configuration
 @EnableMongoRepositories(basePackageClasses = LDuMongoBlacklistRepository.class)
 @ComponentScan(basePackageClasses =
-{ LDuMongoBlacklistService.class, LDuBlacklistItemValidtor.class })
+{ LDuBlacklistControllerAdvice.class, LDuMongoBlacklistService.class, LDuBlacklistItemValidtor.class })
 public class LDuMongoBlacklistConfigurer
 {
 

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.lildutils.springboot.blacklist.controller.advice.LDuBlacklistControllerAdvice;
 import com.lildutils.springboot.blacklist.jpa.repository.LDuJpaBlacklistRepository;
 import com.lildutils.springboot.blacklist.jpa.service.LDuJpaBlacklistService;
 import com.lildutils.springboot.blacklist.validation.validator.LDuBlacklistItemValidtor;
@@ -17,7 +18,7 @@ import com.lildutils.springboot.blacklist.validation.validator.LDuBlacklistItemV
 @EnableJpaRepositories(basePackageClasses = LDuJpaBlacklistRepository.class)
 @EnableTransactionManagement
 @ComponentScan(basePackageClasses =
-{ LDuJpaBlacklistService.class, LDuBlacklistItemValidtor.class })
+{ LDuBlacklistControllerAdvice.class, LDuJpaBlacklistService.class, LDuBlacklistItemValidtor.class })
 public class LDuJpaBlacklistConfigurer
 {
 
