@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.lildutils.springboot.blacklist.mongodb.document.LDuMongoBlacklistItem;
 import com.lildutils.springboot.blacklist.mongodb.repository.LDuMongoBlacklistRepository;
@@ -21,7 +20,6 @@ import com.lildutils.springboot.blacklist.validation.groups.LDuBlacklistItemRead
 import com.lildutils.springboot.blacklist.validation.validator.LDuBlacklistItemValidtor;
 
 @Service
-@Transactional(readOnly = true)
 public class LDuMongoBlacklistServiceImpl extends LDuBaseBlacklistItemServiceImpl implements LDuMongoBlacklistService
 {
 	@Autowired
@@ -72,7 +70,6 @@ public class LDuMongoBlacklistServiceImpl extends LDuBaseBlacklistItemServiceImp
 	}
 
 	@Override
-	@Transactional
 	public void pinByToken( LDuBlacklistItemTokenDTO dto )
 	{
 		validator.validate( dto, LDuBlacklistItemPinValidationGroup.class );
