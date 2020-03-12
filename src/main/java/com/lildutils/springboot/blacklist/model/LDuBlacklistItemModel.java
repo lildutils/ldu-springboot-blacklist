@@ -1,29 +1,13 @@
 package com.lildutils.springboot.blacklist.model;
 
-public interface LDuBlacklistItemModel
+public interface LDuBlacklistItemModel<TID>
 {
-	Long getId();
+	TID getId();
 
-	void setId( Long id );
+	void setId( TID id );
 
 	String getToken();
 
 	void setToken( String token );
-
-	long getCreatedAt();
-
-	void setCreatedAt( long createdAt );
-
-	String getCreatedBy();
-
-	void setCreatedBy( String createdBy );
-
-	long getModifiedAt();
-
-	void setModifiedAt( long modifiedAt );
-
-	String getModifiedBy();
-
-	void setModifiedBy( String modifiedBy );
 
 }

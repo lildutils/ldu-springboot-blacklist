@@ -13,20 +13,20 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @XmlRootElement
 public class LDuBlacklistDTO
 {
-	private Collection<LDuBlacklistItemDTO> collection;
+	private Collection<LDuBlacklistItemDTO<?>> collection;
 
 	public LDuBlacklistDTO()
 	{
 		super();
 	}
 
-	public LDuBlacklistDTO( Collection<LDuBlacklistItemDTO> collection )
+	public LDuBlacklistDTO( Collection<LDuBlacklistItemDTO<?>> collection )
 	{
 		super();
 		this.collection = collection;
 	}
 
-	public Collection<LDuBlacklistItemDTO> getCollection()
+	public Collection<LDuBlacklistItemDTO<?>> getCollection()
 	{
 		return collection;
 	}

@@ -3,22 +3,15 @@ package com.lildutils.springboot.blacklist.jpa.config;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.lildutils.springboot.blacklist.controller.advice.LDuBlacklistControllerAdvice;
 import com.lildutils.springboot.blacklist.jpa.repository.LDuJpaBlacklistRepository;
 import com.lildutils.springboot.blacklist.jpa.service.LDuJpaBlacklistService;
-import com.lildutils.springboot.blacklist.validation.validator.LDuBlacklistItemValidtor;
 
-/**
- * NOTE: This should be add in the root project<br>
- * <b>@EntityScan(basePackageClasses = LDuJpaBlacklistItem.class)</b>
- */
 @Configuration
+//TODO [lildworks] FEAT: Enable SpringBoot AutoConfigurer
+//@EntityScan(basePackageClasses = LDuJpaBlacklistItem.class)
 @EnableJpaRepositories(basePackageClasses = LDuJpaBlacklistRepository.class)
-@EnableTransactionManagement
-@ComponentScan(basePackageClasses =
-{ LDuBlacklistControllerAdvice.class, LDuJpaBlacklistService.class, LDuBlacklistItemValidtor.class })
+@ComponentScan(basePackageClasses = LDuJpaBlacklistService.class)
 public class LDuJpaBlacklistConfigurer
 {
 

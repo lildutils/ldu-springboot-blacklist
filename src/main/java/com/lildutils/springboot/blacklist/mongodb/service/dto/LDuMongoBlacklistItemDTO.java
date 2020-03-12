@@ -1,23 +1,34 @@
-package com.lildutils.springboot.blacklist.service.dto;
+package com.lildutils.springboot.blacklist.mongodb.service.dto;
 
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.lildutils.springboot.blacklist.service.dto.LDuBlacklistItemDTO;
 
 @JsonAutoDetect
 @JsonInclude(value = Include.NON_NULL)
 @XmlRootElement
-public class LDuBlacklistItemTokenDTO
+public class LDuMongoBlacklistItemDTO implements LDuBlacklistItemDTO<String>
 {
-	@NotNull
-	private String token;
+	private String	id;
 
-	public LDuBlacklistItemTokenDTO()
+	private String	token;
+
+	public LDuMongoBlacklistItemDTO()
 	{
 		super();
+	}
+
+	public String getId()
+	{
+		return id;
+	}
+
+	public void setId( String id )
+	{
+		this.id = id;
 	}
 
 	public String getToken()

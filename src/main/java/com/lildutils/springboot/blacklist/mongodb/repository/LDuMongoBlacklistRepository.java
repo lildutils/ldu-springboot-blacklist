@@ -1,6 +1,5 @@
 package com.lildutils.springboot.blacklist.mongodb.repository;
 
-import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -11,7 +10,9 @@ import com.lildutils.springboot.blacklist.mongodb.document.LDuMongoBlacklistItem
 @Repository
 public interface LDuMongoBlacklistRepository extends MongoRepository<LDuMongoBlacklistItem, Long>
 {
-	Collection<LDuMongoBlacklistItem> findAllByToken( String token );
+	Optional<LDuMongoBlacklistItem> findById( String id );
+
+	LDuMongoBlacklistItem getById( String id );
 
 	Optional<LDuMongoBlacklistItem> findByToken( String token );
 
